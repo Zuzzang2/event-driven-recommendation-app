@@ -1,0 +1,20 @@
+name: ci-recommender
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - apps/recommender/**
+      - .github/workflows/ci-recommender.yaml
+      - .github/workflows/build-push.yaml
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-push.yaml
+    with:
+      service: recommender
+    secrets: inherit

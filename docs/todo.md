@@ -37,13 +37,14 @@
 ## Week 2 — CI/CD
 
 ### GitHub Actions CI
-- [ ] `.github/workflows/ci-event-collector.yaml`
-  - [ ] push 트리거 (apps/event-collector/** 변경 시)
-  - [ ] docker buildx (linux/arm64)
-  - [ ] ghcr.io push
-  - [ ] repository_dispatch → infra repo
-- [ ] `.github/workflows/ci-recommender.yaml`
-- [ ] `.github/workflows/ci-recommender-job.yaml`
+- [x] `.github/workflows/build-push.yaml` — 재사용 워크플로우 (빌드/push 공통 로직)
+- [x] `.github/workflows/ci-event-collector.yaml`
+  - [x] push 트리거 (apps/event-collector/** 변경 시)
+  - [x] docker buildx (linux/arm64)
+  - [x] ghcr.io push
+  - [ ] repository_dispatch → infra repo (CD 단계에서 배선)
+- [x] `.github/workflows/ci-recommender.yaml`
+- [x] `.github/workflows/ci-recommender-job.yaml`
 
 ### GitHub 설정
 - [ ] ghcr.io 패키지 퍼블릭 설정

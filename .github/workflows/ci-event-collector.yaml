@@ -1,0 +1,20 @@
+name: ci-event-collector
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - apps/event-collector/**
+      - .github/workflows/ci-event-collector.yaml
+      - .github/workflows/build-push.yaml
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    uses: ./.github/workflows/build-push.yaml
+    with:
+      service: event-collector
+    secrets: inherit
