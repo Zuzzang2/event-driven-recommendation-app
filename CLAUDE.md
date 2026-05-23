@@ -75,7 +75,7 @@ git push main (apps/** 변경)
 
 - Dockerfile은 반드시 `linux/arm64` 플랫폼 대응 (EC2 t4g.large ARM 인스턴스)
 - DB 연결은 `DATABASE_URL` 환경변수 단일 진입점으로 통일
-- 시크릿은 `.env`에만, `.env`는 절대 커밋하지 않음
+- 시크릿은 절대 커밋하지 않음 — k8s Secret(DATABASE_URL) / GitHub Secrets 로 관리
 - `Co-Authored-By` 커밋 라인 추가 금지
 
 ## 작업 완료 규칙
