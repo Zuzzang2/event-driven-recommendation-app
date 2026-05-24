@@ -58,9 +58,10 @@ click 가중치 3, view 가중치 1, 시간 감쇠 적용, 7일 윈도우.
 git push main (apps/** 변경)
   → GitHub Actions CI
     → docker buildx --platform linux/arm64
-    → ghcr.io/Zuzzang2/{service}:{git-sha} push
-    → repository_dispatch → event-driven-recommendation-infra
+    → ghcr.io/zuzzang2/{service}:sha-<short> (+ :latest) push
 ```
+배포(CD)는 infra 레포에서 **수동**으로 처리: 매니페스트 이미지 태그를 새 :sha 로 수정·commit
+→ ArgoCD UI 에서 수동 Sync. (repository_dispatch 자동화는 미사용)
 
 ## Prometheus 메트릭
 

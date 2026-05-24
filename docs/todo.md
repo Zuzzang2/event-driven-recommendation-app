@@ -1,6 +1,6 @@
 # event-driven-recommendation-app TODO
 
-## Week 1 — 애플리케이션 코어
+## 애플리케이션 코어
 
 ### event-collector
 - [x] `apps/event-collector/` 디렉토리 구조 생성
@@ -34,7 +34,7 @@
 
 ---
 
-## Week 2 — CI/CD
+## CI/CD
 
 ### GitHub Actions CI
 - [x] `.github/workflows/build-push.yaml` — 재사용 워크플로우 (빌드/push 공통 로직)
@@ -42,16 +42,17 @@
   - [x] push 트리거 (apps/event-collector/** 변경 시)
   - [x] docker buildx (linux/arm64)
   - [x] ghcr.io push
-  - [ ] repository_dispatch → infra repo (CD 단계에서 배선)
+  - ~~repository_dispatch → infra repo~~ — 의도적 미진행 (배포는 infra 수동 Sync)
 - [x] `.github/workflows/ci-recommender.yaml`
 - [x] `.github/workflows/ci-recommender-job.yaml`
 
 ### GitHub 설정
-- [ ] ghcr.io 패키지 퍼블릭 설정
-- [ ] `INFRA_REPO_TOKEN` Secret 등록 (repository_dispatch용)
+- [x] ghcr.io 패키지 퍼블릭 설정
+- ~~`INFRA_REPO_TOKEN` Secret (repository_dispatch용)~~ — 미진행 (CD 자동화 안 함)
 
 ---
 
-## Week 3 — 검증
+## 검증
 
-- [ ] CI 전체 흐름 end-to-end 확인 (push → 이미지 빌드 → infra dispatch)
+- [x] CI 전체 흐름 확인 (push → 이미지 빌드 → ghcr push)
+- [ ] end-to-end: 이미지 태그 갱신 → ArgoCD 수동 Sync → 배포 확인
